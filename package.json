@@ -9,7 +9,8 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@types/bent": "^7.3.2",
-    "bent": "^7.3.12"
+    "bent": "^7.3.12",
+    "form-data": "^3.0.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.26.1",

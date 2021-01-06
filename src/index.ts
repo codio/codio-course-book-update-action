@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import bent from 'bent'
-
+import FormData from 'form-data'
 
 const main = async () => {
   try {
@@ -15,11 +15,14 @@ const main = async () => {
 
     const api = bent(`https://octopus.${domain}`, 'POST', 'json', 200)
 
+    const data = new FormData()
+
     const request = {}
-    if (bookId) {
-      request['bookId'] = bookId
+    if (bookId !== '') {
+      data.append('bookId', bookId)
     }
-    const res = await api(`/api/v1/courses/${courseId}/update_books`, request, authHeaders)
+    const headers = Object.assign(data.getHeaders(), authHeaders)
+    const res = await api(`/api/v1/courses/${courseId}/update_books`, request, headers)
     console.log(res)
     console.log('publish Completed')
 
