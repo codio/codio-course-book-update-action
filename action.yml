@@ -1,0 +1,23 @@
+# action.yml
+name: 'Codio assessment publish'
+description: 'Publishes a new version of assessment'
+inputs:
+  token:
+    description: 'API access token'
+    required: true
+    default: ''
+  course-id:
+    description: 'Course Id'
+    required: true
+    default: ''
+  book-id:
+    description: 'Book id'
+    required: false
+    default: ''
+  domain:
+    description: 'API Domain'
+    required: false
+    default: 'codio.com'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
